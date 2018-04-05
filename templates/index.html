@@ -1,0 +1,23 @@
+{{  }}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VK Friends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container text-center">
+        <p>
+            <a class="btn btn-primary btn-lg" role="button"
+               href="https://oauth.vk.com/authorize?client_id=6432623&redirect_uri=http://localhost:5000/&response_type=code&v=5.74">
+                Авторизоваться
+            </a>
+        </p>
+        {% if error %}
+            <p class="error"><strong>{{ error }}</strong></p>
+            <p>{{ error_description }}</p>
+        {% endif %}
+    </div>
+  </body>
+</html>
