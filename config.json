@@ -1,6 +1,6 @@
 {
- 	"APP_ID": "6432623",
-    "APP_CODE": "CrtySJniC6f0vNHSvoCS",
+    "APP_ID": "YOUR_APP_ID",
+    "APP_CODE": "YOUR_APP_ENCRYPTED_KEY",
     "VK_API_VERSION": "5.74",
     "VK_API_REDIRECT_URI": "http://localhost:5000/",
     "FRIENDS_URI_TEMPLATE": "https://api.vk.com/method/friends.get?user_id={}&order={}&count={}&fields={}&access_token={}&v={}",
