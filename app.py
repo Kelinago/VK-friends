@@ -1,6 +1,7 @@
 # coding=utf-8
 from flask import Flask, render_template, redirect, url_for, request, session
 import requests
+import datetime
 import json
 import os
 
@@ -15,12 +16,19 @@ vk_config = json.load(open('config.json'))
 def handle_error(error, error_description):
     # Filter access errors
     if error == 'access_denied' or error == '5':
-        error = 'Ошибка доступа'
-        error_description = 'Для продолжения необходимо авторизоваться ' \
-                            'и предоставить доступ к общей информации'
+        error = "Ошибка доступа"
+        error_description = "Для продолжения необходимо авторизоваться " \
+                            "и предоставить доступ к общей информации"
         session.pop('user_id', None)
 
-    return render_template('index.html', error=error, error_description=error_description)
+    return render_template('index.html', error=error.decode('utf-8'), error_description=error_description.decode('utf-8'))
+
+
+@app.before_first_request
+def make_session_permanent():
+    session.permanent = True
+    app.permanent_session_lifetime = datetime.timedelta(minutes=20)
+    session.modified = True
 
 
 @app.route('/')
