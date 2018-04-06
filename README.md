@@ -14,7 +14,7 @@ After cloning please run
 pip install -r requirements.txt
 ```
 
-Then paste your VK application's settings
+Then edit your VK application's settings in config.json
 
 ```
     ...
